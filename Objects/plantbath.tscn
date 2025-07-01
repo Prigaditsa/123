@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://buq5u4a1ti3m6"]
+
+[ext_resource type="Texture2D" uid="uid://x0d1qggriin4" path="res://Tilemaps/sprites/FreePixel.png" id="1_4toso"]
+[ext_resource type="Script" uid="uid://4l7r0ft8af5y" path="res://Objects/plantbath.gd" id="1_fj0jd"]
+[ext_resource type="PackedScene" uid="uid://b5soar6lhb5cb" path="res://Components/health_component.tscn" id="2_e1x1i"]
+[ext_resource type="PackedScene" uid="uid://cjj37qfdd5dig" path="res://Components/gold_drop_component.tscn" id="3_80lok"]
+[ext_resource type="PackedScene" uid="uid://njldi5fqn3yj" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_vb5io"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qws6r"]
+radius = 5.0
+height = 12.0
+
+[node name="plantbath" type="Node2D"]
+position = Vector2(-8, -4)
+script = ExtResource("1_fj0jd")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_e1x1i")]
+
+[node name="GoldDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_80lok")]
+health_component = NodePath("../HealthComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 4)
+texture = ExtResource("1_4toso")
+region_enabled = true
+region_rect = Rect2(160, 32, 32, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qws6r")
+
+[node name="HitBox" parent="." instance=ExtResource("3_vb5io")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(8, 12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qws6r")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbh6oec3t5tjq"]
+
+[ext_resource type="Texture2D" uid="uid://c6w81e1l3f7ma" path="res://Tilemaps/sprites/кровать и предметы.png" id="1_vlohh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qws6r"]
+radius = 11.0
+height = 26.0
+
+[node name="plant2" type="Node2D"]
+position = Vector2(-8, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 4)
+texture = ExtResource("1_vlohh")
+region_enabled = true
+region_rect = Rect2(128, 64, 32, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qws6r")

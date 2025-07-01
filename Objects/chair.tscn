@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://0x283axpogv1"]
+
+[ext_resource type="Texture2D" uid="uid://cx34ohmtwps20" path="res://Tilemaps/sprites/001 - sChair001_front.png" id="1_dff3s"]
+
+[node name="chair" type="Node2D"]
+position = Vector2(-8, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 4)
+scale = Vector2(1.078, 1.125)
+texture = ExtResource("1_dff3s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+scale = Vector2(1.078, 1.125)
+polygon = PackedVector2Array(-17, 5, -17, 19, 5, 29, 33, 15, 35, 13, 31, 6, 16, 1, -12, 4)

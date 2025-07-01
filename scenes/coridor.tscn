@@ -1,0 +1,139 @@
+[gd_scene load_steps=13 format=3 uid="uid://dwf5ofdbp7spi"]
+
+[ext_resource type="Script" uid="uid://dsl0uknlnxfk0" path="res://scenes/scripts/base_scene.gd" id="1_i0ll4"]
+[ext_resource type="PackedScene" uid="uid://ca2d01cqqcn1n" path="res://Tilemaps/bedroom.tscn" id="1_l23tx"]
+[ext_resource type="PackedScene" uid="uid://c0q14a0ifse0q" path="res://camera_2d.tscn" id="2_jn707"]
+[ext_resource type="PackedScene" uid="uid://clcgebl5t6ah" path="res://scenes/scene_trigger.tscn" id="4_ckt2n"]
+[ext_resource type="PackedScene" uid="uid://dmhtqy1nq7uv8" path="res://Objects/backpack.tscn" id="5_mdc2m"]
+[ext_resource type="PackedScene" uid="uid://kb1eynms15i3" path="res://Objects/box1.tscn" id="6_q8j7h"]
+[ext_resource type="PackedScene" uid="uid://c5c3q7hufntfk" path="res://scenes/music.tscn" id="7_1apnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdc2m"]
+size = Vector2(64, 8)
+
+[sub_resource type="Gradient" id="Gradient_c4xqu"]
+offsets = PackedFloat32Array(0, 0.162338, 1)
+colors = PackedColorArray(1, 0.754295, 0.164939, 1, 1, 0.701307, 0.271634, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n700p"]
+gradient = SubResource("Gradient_c4xqu")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckt2n"]
+size = Vector2(13.5, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8j7h"]
+size = Vector2(56, 10)
+
+[node name="Coridor" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_i0ll4")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.278431, 0.470588, 0.905882, 0.262745)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0.168627, 1)
+max_distance = 1000.0
+
+[node name="Bedroom" parent="." instance=ExtResource("1_l23tx")]
+layer_0/name = "floor"
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(1, 655373, 6, 65537, 655373, 6, 131073, 655373, 6, 196609, 655373, 6, 2, 655373, 6, 65538, 655373, 6, 131074, 655373, 6, 196610, 655373, 6, 3, 720901, 11, 65539, 655373, 6, 131075, 655373, 6, 4, 720901, 11, 65540, 655373, 6, 131076, 655373, 6, 131077, 655373, 6, 196613, 655373, 6, 131078, 655373, 6, 196614, 655373, 6, 7, 720901, 11, 65543, 655373, 6, 131079, 655373, 6, 196615, 655373, 6, 8, 720901, 11, 131080, 655373, 6, 196616, 655373, 6, 9, 720901, 11, 196617, 655373, 6, 327680, 589838, 1, 327681, 589838, 1, 327682, 589838, 1, 327683, 589838, 1, 327684, 589838, 1, 327685, 589838, 1, 327686, 589838, 1, 327688, 589838, 1, 327689, 589838, 1, 10, 589838, 1, 65546, 589838, 1, 131082, 589838, 1, 196618, 589838, 1, 262154, 589838, 1, 327690, 589838, 1, 5, 720901, 11, 6, 720901, 11, 327687, 589838, 1, 262153, 655373, 6, 262152, 655373, 6, 262151, 655373, 6, 262150, 655373, 6, 262149, 655373, 6, 262148, 131085, 15, 262147, 131085, 15, 262146, 655373, 6, 262145, 655373, 6, 262144, 589838, 1, 131081, 655373, 6, 65541, 655373, 6, 65542, 655373, 6, 65544, 655373, 6, 196608, 589838, 1, 131072, 589838, 1, 0, 589838, 1, 65536, 589838, 1, 65545, 655373, 6, 196611, 655373, 6, 196612, 655373, 6)
+layer_1/name = "walls"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(8, 262157, 8, 9, 262157, 8, 7, 262157, 8, 6, 262157, 8, 5, 262157, 8, 65541, 65553, 1, 65539, 65553, 1, 131079, 17, 2, 65537, 65553, 1)
+layer_2/name = "topwalls"
+layer_2/y_sort_enabled = true
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array(65543, 983053, 5, 65542, 983053, 5, 65541, 917517, 6, 65544, 983053, 5, 65545, 983053, 5, 65539, 983053, 6, 131079, 851981, 6, 65537, 983053, 6)
+layer_3/name = "furniture"
+layer_3/y_sort_enabled = true
+layer_3/z_index = 1
+layer_3/tile_data = PackedInt32Array(65542, 851987, 7, 131078, 851987, 8, 65543, 196625, 7, 7, 17, 8, 262146, 851982, 12)
+layer_4/name = "decor"
+layer_4/y_sort_enabled = true
+layer_4/z_index = 2
+layer_4/tile_data = PackedInt32Array(196610, 458769, 6)
+layer_5/name = "roof"
+layer_5/z_index = 3
+layer_5/tile_data = PackedInt32Array(9, 262161, 0, 8, 196625, 0, 3, 131089, 1, 196617, 262161, 1, 131081, 262161, 1, 65545, 262161, 1, 65543, 131089, 1, 6, 196625, 0, 5, 17, 0, 131079, 17, 1, 7, 65553, 0, 1, 131089, 1, 262153, 262161, 2, 262145, 131089, 2, 196609, 131089, 1, 262152, 196625, 2, 262151, 196625, 2, 262150, 196625, 2, 262149, 196625, 2, 262148, 196625, 2, 262147, 196625, 2, 262146, 196625, 2)
+
+[node name="Camera2D" parent="." instance=ExtResource("2_jn707")]
+
+[node name="TopLeft" parent="Camera2D/Limits" index="0"]
+position = Vector2(32, 0)
+rotation = 0.000574287
+
+[node name="BottomRight" parent="Camera2D/Limits" index="1"]
+position = Vector2(320, 136)
+
+[node name="EntranceMarkers" type="Node2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="Попытка2" type="Marker2D" parent="EntranceMarkers"]
+position = Vector2(120, 56)
+
+[node name="EntranceMarkers2" type="Node2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="Kitchen" type="Marker2D" parent="EntranceMarkers2"]
+position = Vector2(40, 16)
+
+[node name="EntranceMarkers3" type="Node2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="bathroom" type="Marker2D" parent="EntranceMarkers3"]
+position = Vector2(8, 48)
+
+[node name="SceneTrigger" parent="." instance=ExtResource("4_ckt2n")]
+position = Vector2(136, 32)
+connected_scene = "попытка_2"
+entrance_point = "Попытка2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+position = Vector2(-8, -4)
+shape = SubResource("RectangleShape2D_mdc2m")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(132, 33)
+color = Color(0.976471, 0.952941, 1, 1)
+energy = 0.15
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_n700p")
+
+[node name="SceneTrigger2" parent="." instance=ExtResource("4_ckt2n")]
+position = Vector2(8, 48)
+connected_scene = "bathroom"
+entrance_point = "bathroom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger2"]
+position = Vector2(14.75, 16)
+shape = SubResource("RectangleShape2D_ckt2n")
+
+[node name="SceneTrigger3" parent="." instance=ExtResource("4_ckt2n")]
+connected_scene = "Kitchen"
+entrance_point = "Kitchen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger3"]
+position = Vector2(68, -8)
+shape = SubResource("RectangleShape2D_q8j7h")
+
+[node name="backpack" parent="." instance=ExtResource("5_mdc2m")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(293, 101)
+
+[node name="box1" parent="." instance=ExtResource("6_q8j7h")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(267, 49)
+
+[node name="Music" parent="." instance=ExtResource("7_1apnn")]
+
+[editable path="Camera2D"]

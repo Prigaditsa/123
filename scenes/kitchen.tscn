@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://nag4hcurdb2w"]
+
+[ext_resource type="Script" uid="uid://c17ayhlppumlt" path="res://kitchen.gd" id="1_2b6py"]
+[ext_resource type="PackedScene" uid="uid://ca2d01cqqcn1n" path="res://Tilemaps/bedroom.tscn" id="2_bems3"]
+[ext_resource type="PackedScene" uid="uid://c0q14a0ifse0q" path="res://camera_2d.tscn" id="3_v3ycp"]
+[ext_resource type="PackedScene" uid="uid://clcgebl5t6ah" path="res://scenes/scene_trigger.tscn" id="4_bems3"]
+[ext_resource type="PackedScene" uid="uid://c0yn2ryyr1w3e" path="res://Objects/table1.tscn" id="5_v3ycp"]
+[ext_resource type="PackedScene" uid="uid://cblg1r6aeotsi" path="res://Objects/chairkitchen.tscn" id="6_g3o0j"]
+[ext_resource type="PackedScene" uid="uid://5yyjkcbngycx" path="res://Objects/chairkitchen2.tscn" id="7_58u3k"]
+[ext_resource type="PackedScene" uid="uid://cpq5kst48ytpo" path="res://Objects/teapot.tscn" id="8_ibrlr"]
+[ext_resource type="PackedScene" uid="uid://c5c3q7hufntfk" path="res://scenes/music.tscn" id="9_mwmjw"]
+[ext_resource type="PackedScene" uid="uid://ft7xt2s5ak7w" path="res://Enemies/Cocoroach.tscn" id="10_cwf2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3ycp"]
+size = Vector2(62.5, 20)
+
+[sub_resource type="Gradient" id="Gradient_ibrlr"]
+offsets = PackedFloat32Array(0, 0.123377, 1)
+colors = PackedColorArray(1, 0.752941, 0.164706, 1, 1, 0.701961, 0.270588, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mwmjw"]
+gradient = SubResource("Gradient_ibrlr")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Kitchen" type="Node2D"]
+show_behind_parent = true
+y_sort_enabled = true
+script = ExtResource("1_2b6py")
+
+[node name="Bedroom" parent="." instance=ExtResource("2_bems3")]
+layer_0/name = "floor"
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(131072, 655373, 6, 196608, 655373, 6, 262144, 655373, 6, 327680, 655373, 6, 131073, 655373, 6, 196609, 655373, 6, 262145, 655373, 6, 327681, 655373, 6, 131074, 655373, 6, 196610, 655373, 6, 262146, 655373, 6, 327682, 655373, 6, 131075, 655373, 6, 196611, 655373, 6, 327683, 655373, 6, 131076, 655373, 6, 196612, 655373, 6, 262148, 655373, 6, 327684, 655373, 6, 131077, 655373, 6, 196613, 655373, 6, 262149, 655373, 6, 327685, 655373, 6, 65540, 65557, 1, 65539, 65557, 1, 65538, 65557, 1, 65537, 65557, 1, 65536, 65557, 1, 65541, 65557, 1, 2, 131093, 0, 1, 131093, 0, 0, 131093, 0, 4, 131093, 0, -65530, 589838, 1, 6, 589838, 1, 65542, 589838, 1, 131078, 589838, 1, 196614, 589838, 1, 262150, 589838, 1, 327686, 589838, 1, 393222, 589838, 1, 393223, 589838, 1, 327687, 589838, 1, 262151, 589838, 1, 196615, 589838, 1, 131079, 589838, 1, 65543, 589838, 1, 7, 589838, 1, -65529, 589838, 1, -131065, 589838, 1, -131066, 589838, 1, -131067, 589838, 1, -131068, 589838, 1, -131069, 589838, 1, -131070, 589838, 1, -131071, 589838, 1, -131072, 589838, 1, -65537, 589838, 1, -1, 589838, 1, -2, 589838, 1, -65538, 589838, 1, 65534, 589838, 1, 65535, 589838, 1, 131071, 589838, 1, 131070, 589838, 1, 196606, 589838, 1, 262142, 589838, 1, 262143, 589838, 1, 196607, 589838, 1, 327678, 589838, 1, 393214, 589838, 1, 393215, 589838, 1, 327679, 589838, 1, 458750, 589838, 1, 458751, 589838, 1, 393216, 589838, 1, 393217, 589838, 1, 393218, 589838, 1, 393219, 589838, 1, 393220, 655373, 6, 393221, 655373, 6, 262147, 655373, 6)
+layer_1/name = "under widows"
+layer_1/tile_data = PackedInt32Array(4, 1245186, 11, 5, 1310722, 11, 3, 1179650, 11, 0, 1179650, 11, 1, 1245186, 11, 2, 1310722, 11)
+layer_2/name = "uder widows2"
+layer_2/tile_data = PackedInt32Array(4, 1376258, 11, 0, 1507330, 11, 1, 1441794, 10)
+layer_3/name = "walls"
+layer_3/tile_data = PackedInt32Array(65536, 196621, 3, 65537, 262157, 3, 65538, 327693, 3, 65539, 262157, 3, 65541, 262157, 3, 5, 262157, 2, -65531, 327693, 2, -65532, 262157, 2, -65533, 196621, 2, -65534, 327693, 2, -65535, 262157, 2, -65536, 196621, 2, 3, 196621, 2)
+layer_4/name = "topwalls"
+layer_4/tile_data = PackedInt32Array(131077, 983053, 5, 131075, 983053, 5, 131074, 983053, 5, 131073, 983053, 5, 131072, 983053, 5, 1, 851973, 2, 2, 851973, 2, 65538, 589838, 2, 65537, 589838, 2, 0, 851973, 2, 65536, 589838, 2)
+layer_5/name = "furniture"
+layer_5/tile_data = PackedInt32Array(327683, 720910, 9, 327682, 720910, 9, 327681, 720910, 9, 327680, 589838, 9, 262144, 786446, 11, 196608, 262161, 5, 131072, 196617, 1, 65536, 196617, 0, 65540, 983045, 2, 4, 983045, 1)
+layer_6/name = "decor"
+layer_6/tile_data = PackedInt32Array(262144, 589837, 13)
+layer_7/name = "roof"
+layer_7/z_index = 4
+layer_7/tile_data = PackedInt32Array(-65536, 131089, 0, 0, 131089, 1, 65536, 131089, 1, 131072, 131089, 1, 196608, 131089, 1, 262144, 131089, 1, 327680, 131089, 2, 327681, 196625, 2, 327682, 196625, 2, 327683, 196625, 2, 327685, 262161, 1, 262149, 262161, 1, 196613, 262161, 1, 131077, 262161, 1, 65541, 262161, 1, 5, 262161, 1, -65531, 262161, 0, -65532, 196625, 0, -65533, 196625, 0, -65534, 196625, 0, -65535, 196625, 0)
+
+[node name="Camera2D" parent="." instance=ExtResource("3_v3ycp")]
+
+[node name="TopLeft" parent="Camera2D/Limits" index="0"]
+position = Vector2(-16, -40)
+
+[node name="BottomRight" parent="Camera2D/Limits" index="1"]
+position = Vector2(240, 192)
+
+[node name="SceneTrigger" parent="." instance=ExtResource("4_bems3")]
+connected_scene = "Coridor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+position = Vector2(159.75, 202)
+shape = SubResource("RectangleShape2D_v3ycp")
+
+[node name="EntranceMarkers" type="Node2D" parent="."]
+
+[node name="kitchen" type="Marker2D" parent="EntranceMarkers"]
+position = Vector2(158, 180)
+
+[node name="table1" parent="." instance=ExtResource("5_v3ycp")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(158, 102)
+
+[node name="chairkitchen" parent="." instance=ExtResource("6_g3o0j")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(134, 96)
+
+[node name="chairkitchen2" parent="." instance=ExtResource("7_58u3k")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(158, 115)
+
+[node name="teapot" parent="." instance=ExtResource("8_ibrlr")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(157, 90)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.278431, 0.470588, 0.905882, 0.262745)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0.168627, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(53, 11)
+energy = 0.56
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_mwmjw")
+
+[node name="Music" parent="." instance=ExtResource("9_mwmjw")]
+
+[node name="Cocoroach" parent="." instance=ExtResource("10_cwf2y")]
+position = Vector2(52, 112)
+
+[editable path="Camera2D"]

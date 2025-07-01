@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvgk66tqdljnc"]
+
+[ext_resource type="Texture2D" uid="uid://1i7va0a33bhp" path="res://Tilemaps/sprites/003 - sBed001_back.png" id="1_sc44f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ardoa"]
+size = Vector2(72, 78)
+
+[node name="Bed" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, 0)
+scale = Vector2(1.375, 1.08333)
+texture = ExtResource("1_sc44f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4, 9)
+shape = SubResource("RectangleShape2D_ardoa")

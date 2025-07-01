@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmhtqy1nq7uv8"]
+
+[ext_resource type="Texture2D" uid="uid://cb5l1erprpmjl" path="res://Tilemaps/sprites/sBackpack.png" id="1_kphqw"]
+[ext_resource type="Script" uid="uid://bpci07uogk7o7" path="res://Objects/backpack.gd" id="1_yflb4"]
+[ext_resource type="PackedScene" uid="uid://b5soar6lhb5cb" path="res://Components/health_component.tscn" id="2_g13bq"]
+[ext_resource type="PackedScene" uid="uid://cjj37qfdd5dig" path="res://Components/gold_drop_component.tscn" id="3_b6f7w"]
+[ext_resource type="PackedScene" uid="uid://njldi5fqn3yj" path="res://GeneralNodes/HitBox/hit_box.tscn" id="5_b6f7w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qws6r"]
+radius = 5.0
+height = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3h1q"]
+radius = 7.07107
+
+[node name="backpack" type="Node2D"]
+position = Vector2(-8, -4)
+script = ExtResource("1_yflb4")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_g13bq")]
+
+[node name="GoldDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_b6f7w")]
+health_component = NodePath("../HealthComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 4)
+texture = ExtResource("1_kphqw")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qws6r")
+
+[node name="HitBox" parent="." instance=ExtResource("5_b6f7w")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(7, 8)
+shape = SubResource("CircleShape2D_x3h1q")

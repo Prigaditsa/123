@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://kb1eynms15i3"]
+
+[ext_resource type="Script" uid="uid://camswfap84f8s" path="res://Objects/scripts/box1.gd" id="1_a6yxq"]
+[ext_resource type="Texture2D" uid="uid://bb0gt3recsg2x" path="res://Tilemaps/sprites/sBoox004.png" id="1_bncew"]
+[ext_resource type="PackedScene" uid="uid://b5soar6lhb5cb" path="res://Components/health_component.tscn" id="2_bihd7"]
+[ext_resource type="PackedScene" uid="uid://cjj37qfdd5dig" path="res://Components/gold_drop_component.tscn" id="3_tlc5j"]
+[ext_resource type="PackedScene" uid="uid://njldi5fqn3yj" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_v78jo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dagw8"]
+size = Vector2(8.02838, 21.4839)
+
+[node name="box1" type="Node2D"]
+position = Vector2(-8, -4)
+script = ExtResource("1_a6yxq")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_bihd7")]
+
+[node name="GoldDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_tlc5j")]
+health_component = NodePath("../HealthComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 4)
+texture = ExtResource("1_bncew")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(10.3918, 12.9856)
+rotation = 1.16809
+shape = SubResource("RectangleShape2D_dagw8")
+
+[node name="HitBox" parent="." instance=ExtResource("3_v78jo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(10.3142, 12.8034)
+rotation = 1.16809
+shape = SubResource("RectangleShape2D_dagw8")

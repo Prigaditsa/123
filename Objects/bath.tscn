@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0gyv4vgqjaug"]
+
+[ext_resource type="Texture2D" uid="uid://cb8spetn0h185" path="res://Tilemaps/sprites/bath.png" id="1_u5738"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ii30"]
+size = Vector2(33, 64)
+
+[node name="bath" type="Node2D"]
+position = Vector2(-8, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 4)
+texture = ExtResource("1_u5738")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8.00003, 20.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_7ii30")

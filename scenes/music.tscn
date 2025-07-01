@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5c3q7hufntfk"]
+
+[ext_resource type="AudioStream" uid="uid://bukvri66j3iaj" path="res://Sounds/music/a-video-game-248444.mp3" id="1_05ggv"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_05ggv")
+volume_db = -30.0
+autoplay = true
