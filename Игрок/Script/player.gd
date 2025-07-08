@@ -8,6 +8,7 @@ var invulnerable : bool = false
 var hp : int = 6
 var max_hp : int = 6
 
+
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -28,21 +29,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
-	
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	direction = direction.normalized()
-	
 	pass
 
 
 func _physics_process(_delta):
-	
-	velocity = direction * speed
+	# Убираем автоматическое управление velocity - теперь это делают состояния
 	move_and_slide()
-
-
 
 
 func SetDirection() -> bool:
@@ -58,7 +53,6 @@ func SetDirection() -> bool:
 	DirectionChanged.emit( new_dir )
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
-	
 	
 	
 func UpdateAnimation ( state : String) -> void:
@@ -88,6 +82,7 @@ func _take_damage( hurt_box : HurtBox ) -> void:
 
 func update_hp( delta: int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp)
+	PlayerHud.update_hp( hp, max_hp )
 	pass
 
 
